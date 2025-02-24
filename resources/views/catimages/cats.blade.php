@@ -9,7 +9,7 @@
 </head>
 <body class="bg-gray-100">
     <div class="container mx-auto py-4 px-4">
-        <h1 class="text-center text-2xl font-bold mb-6">Galeria de gats</h1>
+        <h1 class="text-center text-2xl font-bold mb-6">🐱Galeria de gats🐱</h1>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             @foreach ($cats as $cat)
@@ -17,7 +17,11 @@
                     <img src="{{ asset('storage/' . $cat->image_path) }}" alt="{{ $cat->tags }}" class="w-full h-48 object-cover">
                     <div class="p-4">
                         <h5 class="text-lg font-semibold">Cat ID: {{ $cat->_id }}</h5>
-                        <p class="text-gray-600">Tags: {{ $cat->tags }}</p>
+                        <ul class="list-disc pl-5 text-gray-600">
+                            @foreach (json_decode($cat->tags, true) as $tag)
+                                <li>{{ $tag }}</li>
+                            @endforeach
+                        </ul>
                     </div>
                 </div>
             @endforeach
