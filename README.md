@@ -48,15 +48,21 @@ php artisan key:generate
 
 ### 3️⃣ Executar migracions i seeders
 
-Per executar les migracions i carregar dades de prova, executa els comandaments següents:
+Abans d'executar els seeder, s'ha de crear un enllaç simbòlic a la carpeta "storage" des de la carpeta "public":
+
+```sh
+php artisan storage:link
+```
+
+Per executar les migracions i descarregar les imatges, executa el comandament següent:
 
 ```sh
 php artisan migrate --seed
 ```
 
-Això crearà les taules necessàries i inserirà dades de prova si el `seeder` està configurat.
+Això crearà les taules necessàries i descarregarà les imatges de l'API i les guardarà a "storage".
 
-Si només vols executar les migracions sense carregar dades de prova, pots utilitzar:
+Si només vols executar les migracions sense descarregar les imatges, pots utilitzar:
 
 ```sh
 php artisan migrate
